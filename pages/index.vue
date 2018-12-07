@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       title: 'About',
-      content: `My name is Rob, and I'm a full-stack developer. I work with a number of technologies, including but not limited to PHP, Node.js, React, React Native, MongoDB and Sass. I always appreciate a good challenge, so let me know if you want to build something together!`
+      content: `My name is Rob, and I'm a full-stack developer. I work with a number of technologies, including but not limited to PHP, Node.js, React, React Native, MongoDB and HTML5/JS/CSS/Sass. I always appreciate a good challenge, so let me know if you want to build something together!`
     }
   }
 }

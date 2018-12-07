@@ -12,10 +12,15 @@
         </div>
       </div>
     </nav>
-
     <section class="main-content columns">
-
       <aside class="column is-2 section">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image">
+              <img src="~assets/profile.jpg">
+            </figure>
+          </div>
+        </div>
         <p class="menu-label is-hidden-touch">Robert Schillinger</p>
         <ul class="menu-list">
           <li
