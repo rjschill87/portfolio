@@ -9,7 +9,7 @@
         <div class="card">
           <div class="card-image">
             <figure class="image">
-              <img src="~assets/profile.jpg">
+              <img src="~/assets/profile.jpg">
             </figure>
           </div>
         </div>
