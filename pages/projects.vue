@@ -5,14 +5,37 @@
         <article
           v-for="(project, i) of projects"
           :key="i"
-          class="tile is-child card" >
-
+          class="tile is-child card"
+          @click="toggleModal(i)">
           <header class="card-header">
             <p class="card-header-title has-text-grey">{{ project.name }}</p>
           </header>
           <div class="card-content">
-            <div class="content">
-              <p>{{ project.description }}</p>
+            <p>{{ project.snippet }}</p>
+          </div>
+          <div
+            :class="{ 'is-active': project.isActive }"
+            :ref="i"
+            class="modal">
+            <div class="modal-background"/>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title">{{ project.name }}</p>
+                <button
+                  class="delete"
+                  aria-label="close" />
+              </header>
+              <figure class="image is-3by1">
+                <img :src="project.img">
+              </figure>
+              <section class="modal-card-body">
+                <div class="content">
+                  <p v-html="project.description">
+                    {{ project.description }}
+                  </p>
+                </div>
+              </section>
+              <footer class="modal-card-foot" />
             </div>
           </div>
         </article>
@@ -22,15 +45,53 @@
 </template>
 
 <script>
+import goodPlaceImage from 'assets/theGoodPlace.png';
+import questImage from 'assets/Quest.png';
+import taskMasterImage from 'assets/taskMaster.png';
+
 export default {
   name: 'Projects',
   data() {
     return {
+      activeId: '',
       projects: [
-        { name: '/r/TheGoodPlace Subreddit Bot', img: '~assets/theGoodPlace.png', description: `A subreddit bot` },
-        { name: 'Quest Oracle Community', img: '~assets/Quest.png', description: `A learning website and social network`}
+        {
+          isActive: false,
+          name: '/r/TheGoodPlace Subreddit Bot',
+          img: goodPlaceImage,
+          snippet: `A subreddit bot`,
+          description: `Built around an event-based stream, this bot parses each comment posted to the <a href="https://reddit.com/r/thegoodplace" target="_blank">/r/theGoodPlace</a>. It then analyzes the comment for profantiy, indecisive language, polarity, and positive/negative sentiment using the <a href="https://github.com/retextjs/retext" target="_blank">retext</a> library and plugins. It also awards additional points for using key phrases from the show. Each week, when a new episode airs, the users are ranked 1-10, the leaderboard is posted as a reply to the Episode Discussion thread, and all subreddit users are awarded with new flair denoting their placement.`
+        },
+        {
+          isActive: false,
+          name: 'Quest Oracle Community',
+          img: questImage,
+          snippet: `A learning website and social network`,
+          description: `Designed as half learning center and half social media network, Quest Oracle Community was built around WordPress, NodeBB, Elasticsearch, and a Laravel API. Featuring SSO, completely custom plugins and themes, real time notifications, and integrations with various third party services, it's your one-stop-shop for all things Oracle.`,
+        },
+        {
+          isActive: false,
+          name: 'TaskMaster',
+          img: taskMasterImage,
+          snippet: `A simple to-do app.`,
+          description: `Created for a quick interview test over a weekend, TaskMaster is a simple app where you can create new tasks. Using a combination of local storage and MongoDB, you can create tasks and child tasks, drag and drop, and rank tasks by priority.`
+        }
       ]
+    }
+  },
+  methods: {
+    toggleModal: function(i) {
+      this.projects[i].isActive = !this.projects[i].isActive;
     }
   }
 }
 </script>
+
+<style>
+.tile.is-child:hover {
+  cursor: pointer;
+}
+.modal {
+  cursor: initial;
+}
+</style>

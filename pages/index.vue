@@ -1,15 +1,13 @@
 <template>
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          {{ title }}
-        </h1>
-      </div>
-      <div class="container">
-        <div class="content is-medium">
-          <p>{{ content }}</p>
-        </div>
+  <section class="section">
+    <div class="tile is-ancestor">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child card">
+          <header class="card-header" />
+          <div class="card-content">
+            <p>{{ content }}</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -26,9 +24,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  .content {
-    padding: 1em 5em 0 0;
-  }
-</style>
