@@ -16,14 +16,16 @@
           <div
             :class="{ 'is-active': project.isActive }"
             :ref="i"
-            class="modal">
+            class="modal"
+            @click.stop>
             <div class="modal-background"/>
             <div class="modal-card">
               <header class="modal-card-head">
                 <p class="modal-card-title">{{ project.name }}</p>
                 <button
                   class="delete"
-                  aria-label="close" />
+                  aria-label="close"
+                  @click="toggleModal(i)" />
               </header>
               <figure class="image is-3by1">
                 <img :src="project.img">
@@ -35,7 +37,18 @@
                   </p>
                 </div>
               </section>
-              <footer class="modal-card-foot" />
+              <footer class="modal-card-foot">
+                <div
+                  v-if="project.repo && project.repo != null"
+                  class="card-header-title-sub has-text-gray">
+                  [
+                  <a
+                    :href="project.repo"
+                    target="_blank">Repo
+                  </a>
+                  ]
+                </div>
+              </footer>
             </div>
           </div>
         </article>
@@ -53,11 +66,11 @@ export default {
   name: 'Projects',
   data() {
     return {
-      activeId: '',
       projects: [
         {
           isActive: false,
           name: '/r/TheGoodPlace Subreddit Bot',
+          repo: 'https://www.github.com/rjschill87/theGoodPlaceBot/',
           img: goodPlaceImage,
           snippet: `A subreddit bot`,
           description: `Built around an event-based stream, this bot parses each comment posted to the <a href="https://reddit.com/r/thegoodplace" target="_blank">/r/theGoodPlace</a>. It then analyzes the comment for profantiy, indecisive language, polarity, and positive/negative sentiment using the <a href="https://github.com/retextjs/retext" target="_blank">retext</a> library and plugins. It also awards additional points for using key phrases from the show. Each week, when a new episode airs, the users are ranked 1-10, the leaderboard is posted as a reply to the Episode Discussion thread, and all subreddit users are awarded with new flair denoting their placement.`
@@ -66,12 +79,14 @@ export default {
           isActive: false,
           name: 'Quest Oracle Community',
           img: questImage,
+          repo: null,
           snippet: `A learning website and social network`,
           description: `Designed as half learning center and half social media network, Quest Oracle Community was built around WordPress, NodeBB, Elasticsearch, and a Laravel API. Featuring SSO, completely custom plugins and themes, real time notifications, and integrations with various third party services, it's your one-stop-shop for all things Oracle.`,
         },
         {
           isActive: false,
           name: 'TaskMaster',
+          repo: 'https://github.com/rjschill87/task-master/',
           img: taskMasterImage,
           snippet: `A simple to-do app.`,
           description: `Created for a quick interview test over a weekend, TaskMaster is a simple app where you can create new tasks. Using a combination of local storage and MongoDB, you can create tasks and child tasks, drag and drop, and rank tasks by priority.`

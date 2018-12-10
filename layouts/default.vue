@@ -3,15 +3,7 @@
     <nav
       class="navbar header has-shadow is-primary"
       role="navigation"
-      aria-label="main navigation">
-      <div class="navbar-brand">
-        <div class="navbar-burger">
-          <span/>
-          <span/>
-          <span/>
-        </div>
-      </div>
-    </nav>
+      aria-label="main navigation"/>
     <section class="main-content columns">
       <aside class="column is-2 section">
         <div class="card">
