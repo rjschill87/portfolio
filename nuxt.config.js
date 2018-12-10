@@ -1,6 +1,10 @@
 const pkg = require('./package');
 
 module.exports = {
+  router: {
+    base: '/portfolio/'
+  },
+
   mode: 'universal',
 
   /*
