@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <section class="section swing-in-left-fwd">
     <div class="tile is-ancestor">
       <div class="tile is-parent is-vertical">
         <article class="tile is-child card">

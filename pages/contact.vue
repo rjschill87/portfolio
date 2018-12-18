@@ -4,7 +4,7 @@
       <div
         v-for="(contact, i) of contacts"
         :key="i"
-        class="column">
+        class="column swing-in-top-fwd">
         <div class="card">
           <header class="card-header">
             <p class="card-header-title has-text-grey">

@@ -5,7 +5,7 @@
         <article
           v-for="(project, i) of projects"
           :key="i"
-          class="tile is-child card"
+          class="tile is-child card swing-in-left-fwd"
           @click="toggleModal(i)">
           <header class="card-header">
             <p class="card-header-title has-text-grey">{{ project.name }}</p>
