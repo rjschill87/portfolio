@@ -1,11 +1,11 @@
 <template>
-  <section class="section">
-    <div class="tile is-ancestor">
+  <section class="section ">
+    <div class="tile is-ancestor  swing-in-left-fwd">
       <div class="tile is-parent is-vertical">
         <article
           v-for="(project, i) of projects"
           :key="i"
-          class="tile is-child card swing-in-left-fwd"
+          class="tile is-child card"
           @click="toggleModal(i)">
           <header class="card-header">
             <p class="card-header-title has-text-grey">{{ project.name }}</p>
@@ -19,7 +19,7 @@
             class="modal"
             @click.stop>
             <div class="modal-background"/>
-            <div class="modal-card">
+            <div class="modal-card scale-in-ver-top">
               <header class="modal-card-head">
                 <p class="modal-card-title">{{ project.name }}</p>
                 <button
